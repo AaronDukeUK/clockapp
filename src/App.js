@@ -7,7 +7,7 @@ import { Clock, Quote } from "./components"
 function App() {
   const [showMore, setShowMore] = useState(false)
   const [worldTimeAPI, setWorldTimeAPI] = useState([])
-  const TIME_URL = "http://worldtimeapi.org/api/ip"
+  const TIME_URL = "https://worldtimeapi.org/api/ip"
 
   const getTimeAPI = async (url) => {
     const response = await fetch(url)
