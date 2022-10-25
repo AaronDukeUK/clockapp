@@ -1,23 +1,36 @@
 .clock {
+  @media (min-width: 1124px) {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
   &__lead {
     display: flex;
     gap: 16px;
+    img {
+      height: 24px;
+      width: 24px;
+    }
   }
   &__time {
-    margin: 16px 0;
+    margin: 15px 0;
     display: flex;
-    align-items: center;
     gap: 5px;
+    @media (min-width: 768px) {
+      gap: 12px;
+      margin: 25px 0;
+    }
+    @media (min-width: 1024px) {
+      margin: 45px 0;
+    }
   }
+
   &__main {
     display: flex;
     align-items: flex-end;
     justify-content: center;
   }
-  & h1:nth-child(2) {
-    line-height: 60px;
-    margin-bottom: 25px;
-  }
+
   &__timezone {
     margin-top: auto;
   }
@@ -40,6 +53,14 @@
       circle {
         fill: #999999;
       }
+    }
+    @media (min-width: 768px) {
+      width: 146px;
+      height: 56px;
+      margin-top: 80px;
+    }
+    @media (min-width: 1124px) {
+      margin-top: 0;
     }
   }
 }
