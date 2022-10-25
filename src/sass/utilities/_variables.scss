@@ -1,0 +1,93 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap");
+
+// Colors
+$color-black: #000000;
+$color-grey: #303030;
+$color-white: #ffffff;
+
+// Fonts
+$font-family: "Inter", sans-serif;
+$font-size: 18px;
+$font-weight: 400;
+$font-weight-bold: 700;
+
+// Spacing
+$spacing: 1rem;
+
+// Breakpoints
+$breakpoint-mobile: 768px;
+$breakpoint-tablet: 1024px;
+$breakpoint-desktop: 1280px;
+
+// Media queries
+$mq-mobile: (
+  max-width: $breakpoint-mobile,
+);
+$mq-tablet: (
+  max-width: $breakpoint-tablet,
+);
+$mq-desktop: (
+  max-width: $breakpoint-desktop,
+);
+
+// Z-index
+$z-index-1: 1;
+$z-index-2: 2;
+$z-index-3: 3;
+$z-index-4: 4;
+$z-index-5: 5;
+
+// Border radius
+$border-radius: 50%;
+
+// H1
+$h1-font-size: 200px;
+$h1-line-height: 150px;
+$h1-font-weight: 700;
+$h1-letter-spacing: -5px;
+
+// H2
+$h2-font-size: 56px;
+$h2-line-height: 56px;
+$h2-font-weight: 700;
+
+// H3
+$h3-font-size: 24px;
+$h3-line-height: 28px;
+$h3-font-weight: 700;
+$h3-text-transform: uppercase;
+$h3-letter-spacing: 4.8px;
+
+// H4
+$h4-font-size: 20px;
+$h4-line-height: 28px;
+$h4-font-weight: 400;
+$h4-letter-spacing: 4px;
+$h4-text-transform: uppercase;
+
+// H5
+$h5-font-size: 18px;
+$h5-line-height: 28px;
+$h5-font-weight: 700;
+
+// H6
+$h6-font-size: 15px;
+$h6-line-height: 28px;
+$h6-font-weight: 400;
+$h6-letter-spacing: 3px;
+$h6-text-transform: uppercase;
+
+// Body
+$body-font-size: 18px;
+$body-line-height: 28px;
+$body-font-weight: 400;
+
+// Span
+$span-font-size: 40px;
+$span-line-height: 28px;
+$span-font-weight: 300;
+$span-text-transform: uppercase;
+
+// Buttons
+$button-font-size: 16px;
+$button-border-radius: 50%;

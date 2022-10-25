@@ -1,0 +1,18 @@
+.quote {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  &--hide {
+    display: none;
+  }
+  &__body {
+    max-width: 540px;
+    margin-bottom: 14px;
+  }
+  &__refresh {
+    margin-left: 16px;
+    height: 18px;
+    margin-top: 10px;
+    cursor: pointer;
+  }
+}

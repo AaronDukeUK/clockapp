@@ -1,0 +1,106 @@
+*,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+span,
+div,
+a,
+li,
+ul,
+ol,
+blockquote,
+pre,
+code,
+em,
+img,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+b,
+u,
+i,
+fieldset,
+form,
+label,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+main,
+canvas,
+embed,
+footer,
+header,
+nav,
+section,
+video {
+  font-family: $font-family;
+  color: $color-white;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  line-height: $h1-line-height;
+  font-weight: $h1-font-weight;
+  letter-spacing: $h1-letter-spacing;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  line-height: $h2-line-height;
+  font-weight: $h2-font-weight;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  line-height: $h3-line-height;
+  font-weight: $h3-font-weight;
+  text-transform: $h3-text-transform;
+  letter-spacing: $h3-letter-spacing;
+}
+
+h4 {
+  font-size: $h4-font-size;
+  line-height: $h4-line-height;
+  font-weight: $h4-font-weight;
+  letter-spacing: $h4-letter-spacing;
+  text-transform: $h4-text-transform;
+}
+
+h5 {
+  font-size: $h5-font-size;
+  line-height: $h5-line-height;
+  font-weight: $h5-font-weight;
+}
+
+h6 {
+  font-size: $h6-font-size;
+  line-height: $h6-line-height;
+  font-weight: $h6-font-weight;
+  letter-spacing: $h6-letter-spacing;
+  text-transform: $h6-text-transform;
+}
+
+body {
+  font-size: $body-font-size;
+  line-height: $body-line-height;
+  font-weight: $body-font-weight;
+}
+
+span {
+  font-size: $span-font-size;
+  line-height: $span-line-height;
+  font-weight: $span-font-weight;
+  text-transform: $span-text-transform;
+}
