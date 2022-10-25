@@ -1,0 +1,17 @@
+.extra {
+  background: rgba(255, 255, 255, 0.75);
+  backdrop-filter: blur(20.3871px);
+  padding: 48px 26px;
+  height: 40vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-evenly;
+  flex-direction: column;
+
+  &__group {
+    width: 100%;
+    display: flex;
+    align-items: space-between;
+    justify-content: space-between;
+  }
+}
