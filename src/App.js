@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect, useCallback } from "react"
 
 import "./sass/main.scss"
 
@@ -11,9 +11,10 @@ import night from "./assets/desktop/bg-image-night.jpg"
 function App() {
   const [showMore, setShowMore] = useState(false)
   const [worldTimeAPI, setWorldTimeAPI] = useState([])
-  const [timeOfDay, setTimeOfDay] = useState("")
+  const [timeOfDay, setTimeOfDay] = useState()
   const [hours, setHours] = useState()
   const [minutes, setMinutes] = useState()
+  const [styles, setStyles] = useState({})
 
   const TIME_URL = "https://worldtimeapi.org/api/ip"
   const linearGrad = "linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5))"
@@ -24,7 +25,7 @@ function App() {
     setWorldTimeAPI(data)
   }
 
-  const getTimeOfDay = () => {
+  const getTimeOfDay = useCallback(() => {
     if (hours >= 0 && hours < 12) {
       setTimeOfDay("morning")
     } else if (hours >= 12 && hours < 18) {
@@ -32,28 +33,28 @@ function App() {
     } else {
       setTimeOfDay("evening")
     }
-  }
+  }, [hours])
 
-  const getStyles = () => {
+  const getStyles = useCallback(() => {
     console.log("styling")
     if (hours >= 7 && hours < 17) {
-      return {
+      setStyles({
         backgroundImage: `${linearGrad}, url(${day})`,
-      }
+      })
     } else if (hours >= 17 && hours < 20) {
-      return {
+      setStyles({
         backgroundImage: `${linearGrad}, url(${afternoon})`,
-      }
+      })
     } else if (hours >= 20 && hours < 7) {
-      return {
+      setStyles({
         backgroundImage: `${linearGrad}, url(${night})`,
-      }
+      })
     } else {
-      return {
+      setStyles({
         backgroundImage: `${linearGrad}`,
-      }
+      })
     }
-  }
+  }, [hours, linearGrad])
 
   const handleClick = () => {
     const quote = document.querySelector(".quote")
@@ -70,9 +71,13 @@ function App() {
 
   useEffect(() => {
     getTimeAPI(TIME_URL)
+
     if (hours) {
       getTimeOfDay()
     }
+
+    getStyles()
+
     const getTime = setInterval(() => {
       const date = new Date()
       setHours(date.getHours())
@@ -81,30 +86,39 @@ function App() {
     return () => {
       clearInterval(getTime)
     }
-  }, [hours])
+  }, [hours, getStyles, getTimeOfDay])
+
+  if (timeOfDay && styles && worldTimeAPI) {
+    return (
+      <div className="App" style={styles}>
+        <div
+          className={
+            showMore
+              ? "App__container App__container--showMore"
+              : "App__container"
+          }
+        >
+          <Quote showMore={showMore} />
+          {worldTimeAPI.length !== 0 && hours !== undefined && (
+            <Clock
+              showMore={showMore}
+              worldTimeAPI={worldTimeAPI}
+              handleClick={handleClick}
+              hours={hours}
+              minutes={minutes}
+              timeOfDay={timeOfDay}
+            />
+          )}
+        </div>
+        {showMore && <Extra worldTimeAPI={worldTimeAPI} />}
+      </div>
+    )
+  }
 
   return (
-    <div className="App" style={getStyles()}>
-      <div
-        className={
-          showMore
-            ? "App__container App__container--showMore"
-            : "App__container"
-        }
-      >
-        <Quote showMore={showMore} />
-        {worldTimeAPI.length !== 0 && hours !== undefined && (
-          <Clock
-            showMore={showMore}
-            worldTimeAPI={worldTimeAPI}
-            handleClick={handleClick}
-            hours={hours}
-            minutes={minutes}
-            timeOfDay={timeOfDay}
-          />
-        )}
-      </div>
-      {showMore && <Extra worldTimeAPI={worldTimeAPI} />}
+    <div className="loading">
+      <h3>AARON DUKE</h3>
+      <div class="spinner"></div>
     </div>
   )
 }
