@@ -1,21 +1,52 @@
 .quote {
+  /* Center the contents vertically and horizontally */
   display: flex;
-  align-items: flex-start;
+  align-items: center;
   justify-content: flex-start;
   position: relative;
+  opacity: 1;
+  transition: 0.3s ease-in-out;
 
-  &--hide {
-    display: none;
-  }
   &__body {
-    margin-bottom: 8px;
+    /* Set a maximum width to prevent text from overflowing */
     max-width: 70vw;
+    margin-bottom: 8px;
   }
+
   &__refresh {
+    /* Position the refresh button on the top right corner */
     position: absolute;
     top: 10px;
     right: 0;
     height: 16px;
     cursor: pointer;
+  }
+
+  /* Media query for phones */
+  @media only screen and (max-width: 480px) and (orientation: landscape) {
+    /* Hide the quote when phone is in landscape mode */
+    display: none;
+  }
+
+  /* Media query for tablets */
+  @media only screen and (min-width: 481px) and (max-width: 1024px) {
+    /* Center the contents vertically */
+    align-items: center;
+
+    &__body {
+      /* Set a smaller maximum width to prevent text from overflowing */
+      max-width: 50vw;
+    }
+  }
+
+  /* Media query for larger screens */
+  @media only screen and (min-width: 1025px) {
+    /* Align the quote to the left of the screen */
+    align-items: flex-start;
+
+    &__body {
+      /* Set a smaller maximum width to prevent text from overflowing */
+      max-width: 40vw;
+    }
   }
 }

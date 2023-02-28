@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 import sun from "../../assets/desktop/icon-sun.svg"
 import moon from "../../assets/desktop/icon-moon.svg"
@@ -18,22 +18,29 @@ const Clock = ({
 }) => {
   const [width, setWidth] = useState(window.innerWidth)
 
-  const resizeWindow = () => {
-    window.addEventListener("resize", () => {
+  // Handles resizing of the window
+  useEffect(() => {
+    const handleResize = () => {
       setWidth(window.innerWidth)
-    })
-  }
+    }
+    window.addEventListener("resize", handleResize)
+    return () => {
+      window.removeEventListener("resize", handleResize)
+    }
+  }, [])
 
-  resizeWindow()
+  const isNightTime = hours < 4 || hours > 18
 
   return (
     <main className="clock">
       <div>
+        {/* Clock header */}
         <div className="clock__lead">
-          <img src={(hours < 4) | (hours > 18) ? moon : sun} alt="daylight" />
+          <img src={isNightTime ? moon : sun} alt="daylight" />
           <h4>{`Good ${timeOfDay}`}</h4>
         </div>
 
+        {/* Clock time */}
         <div className="clock__time">
           <div className="clock__main">
             <h1>{hours}</h1>
@@ -43,12 +50,17 @@ const Clock = ({
           <span className="clock__timezone">{worldTimeAPI.abbreviation}</span>
         </div>
 
+        {/* Clock location */}
         <div className="clock__location">
           <h3>In London, UK</h3>
         </div>
       </div>
+
+      {/* Button to show more clock details */}
       <button className="clock__button" onClick={() => handleClick()}>
         {showMore ? "LESS" : "MORE"}
+
+        {/* Arrow icon */}
         {width >= 768 && (
           <img src={showMore ? arrowUpLg : arrowDownLg} alt="" />
         )}

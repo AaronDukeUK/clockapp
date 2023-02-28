@@ -54,7 +54,7 @@ h1 {
   font-size: 100px;
   line-height: 90px;
   letter-spacing: -2px;
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (orientation: portrait) {
     font-size: 175px;
     line-height: 130px;
     letter-spacing: -5px;
@@ -70,7 +70,7 @@ h2 {
   font-size: 20px;
   line-height: 24px;
   color: $color-grey;
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (orientation: portrait) {
     font-size: 40px;
     line-height: 48px;
   }
@@ -86,7 +86,7 @@ h3 {
   line-height: 28px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (orientation: portrait) {
     font-size: 18px;
 
     letter-spacing: 4px;
@@ -104,7 +104,7 @@ h4 {
   line-height: 25px;
   letter-spacing: 3px;
   text-transform: uppercase;
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (orientation: portrait) {
     font-size: 18px;
     line-height: 28px;
   }
@@ -117,7 +117,7 @@ h5 {
   font-weight: 700;
   font-size: 12px;
   line-height: 22px;
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (orientation: portrait) {
     font-size: 18px;
     line-height: 28px;
   }
@@ -130,7 +130,7 @@ h6 {
   letter-spacing: 2px;
   text-transform: uppercase;
   color: $color-grey;
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (orientation: portrait) {
     font-size: 13px;
     letter-spacing: 3px;
   }
@@ -155,7 +155,7 @@ span {
   font-size: 15px;
   line-height: 28px;
   text-transform: uppercase;
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (orientation: portrait) {
     font-size: 32px;
   }
   @media (min-width: 1024px) {
@@ -171,7 +171,7 @@ button {
   text-transform: uppercase;
   color: rgba(0, 0, 0, 0.5);
   background-color: #fff;
-  @media (min-width: 768px) {
+  @media (min-width: 768px) and (orientation: portrait) {
     font-size: 16px;
     line-height: 28px;
     letter-spacing: 5px;

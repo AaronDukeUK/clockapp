@@ -1,39 +1,58 @@
+/* 
+  The following code defines the styles for the clock component. It also includes media queries for responsiveness.
+*/
+
 .clock {
+  /* On screens with a minimum width of 1124px, align the clock elements in a row and distribute the space evenly */
   @media (min-width: 1124px) {
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
   }
+
+  /* Styles for the clock lead element */
   &__lead {
     display: flex;
     gap: 16px;
+
+    /* Image styles */
     img {
       height: 24px;
       width: 24px;
     }
   }
+
+  /* Styles for the clock time element */
   &__time {
     margin: 15px 0;
     display: flex;
     gap: 5px;
-    @media (min-width: 768px) {
+
+    /* On screens with a minimum width of 768px, increase the gap and margin */
+    @media (min-width: 768px) and (orientation: portrait) {
       gap: 12px;
       margin: 25px 0;
     }
+
+    /* On screens with a minimum width of 1024px, adjust the margin */
     @media (min-width: 1024px) {
       margin: 45px 0;
     }
   }
 
+  /* Styles for the clock main element */
   &__main {
     display: flex;
     align-items: flex-end;
     justify-content: center;
   }
 
+  /* Styles for the clock timezone element */
   &__timezone {
     margin-top: auto;
   }
+
+  /* Styles for the clock button element */
   &__button {
     border: none;
     width: 115px;
@@ -45,24 +64,38 @@
     padding: 0 4px 0 17px;
     margin-top: 48px;
     cursor: pointer;
+
+    /* When the mouse hovers over the button, reduce the opacity of the image */
     &:hover > img {
       opacity: 0.5;
     }
+
+    /* Styles for the button image */
     img {
       transition: opacity 0.3s ease-in-out;
 
-      @media (min-width: 768px) {
+      /* On screens with a minimum width of 768px, add right margin to the image */
+      @media (min-width: 768px) and (orientation: portrait) {
         margin-right: 4px;
       }
     }
 
+    /* On screens with a minimum width of 768px, adjust the button width, height and margin */
     @media (min-width: 768px) {
       width: 146px;
       height: 56px;
       margin-top: 80px;
     }
+
+    /* On screens with a minimum width of 1124px, remove the top margin of the button */
     @media (min-width: 1124px) {
       margin-top: 0;
     }
+  }
+  @media only screen and (orientation: landscape) {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
   }
 }
