@@ -2,16 +2,20 @@
   display: flex;
   align-items: flex-start;
   justify-content: flex-start;
+  position: relative;
+
   &--hide {
     display: none;
   }
   &__body {
     margin-bottom: 8px;
+    max-width: 70vw;
   }
   &__refresh {
-    margin-left: 16px;
+    position: absolute;
+    top: 10px;
+    right: 0;
     height: 16px;
-    margin-top: 10px;
     cursor: pointer;
   }
 }

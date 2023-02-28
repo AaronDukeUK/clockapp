@@ -45,15 +45,17 @@
     padding: 0 4px 0 17px;
     margin-top: 48px;
     cursor: pointer;
-    circle {
-      fill: $color-grey;
-      transition: fill 0.5s ease;
+    &:hover > img {
+      opacity: 0.5;
     }
-    &:hover {
-      circle {
-        fill: #999999;
+    img {
+      transition: opacity 0.3s ease-in-out;
+
+      @media (min-width: 768px) {
+        margin-right: 4px;
       }
     }
+
     @media (min-width: 768px) {
       width: 146px;
       height: 56px;

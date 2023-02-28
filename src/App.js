@@ -25,18 +25,21 @@ function App() {
     setWorldTimeAPI(data)
   }
 
+  console.log(hours)
+
   const getTimeOfDay = useCallback(() => {
-    if (hours >= 0 && hours < 12) {
-      setTimeOfDay("morning")
+    let timeOfDay
+    if (hours >= 6 && hours < 12) {
+      timeOfDay = "morning"
     } else if (hours >= 12 && hours < 18) {
-      setTimeOfDay("afternoon")
+      timeOfDay = "afternoon"
     } else {
-      setTimeOfDay("evening")
+      timeOfDay = "evening"
     }
+    setTimeOfDay(timeOfDay)
   }, [hours])
 
   const getStyles = useCallback(() => {
-    console.log("styling")
     if (hours >= 7 && hours < 17) {
       setStyles({
         backgroundImage: `${linearGrad}, url(${day})`,
@@ -45,7 +48,7 @@ function App() {
       setStyles({
         backgroundImage: `${linearGrad}, url(${afternoon})`,
       })
-    } else if (hours >= 20 && hours < 7) {
+    } else if (hours >= 0 && hours < 7) {
       setStyles({
         backgroundImage: `${linearGrad}, url(${night})`,
       })
@@ -70,23 +73,24 @@ function App() {
   }
 
   useEffect(() => {
-    getTimeAPI(TIME_URL)
-
-    if (hours) {
+    const fetchTime = async () => {
+      await getTimeAPI(TIME_URL)
       getTimeOfDay()
+      getStyles()
     }
 
-    getStyles()
+    fetchTime()
 
-    const getTime = setInterval(() => {
+    const interval = setInterval(() => {
       const date = new Date()
       setHours(date.getHours())
       setMinutes(date.getMinutes())
-    }, [1000])
-    return () => {
-      clearInterval(getTime)
-    }
-  }, [hours, getStyles, getTimeOfDay])
+    }, 1000)
+
+    return () => clearInterval(interval)
+  }, [getStyles, getTimeOfDay])
+
+  console.log(timeOfDay, styles, worldTimeAPI)
 
   if (timeOfDay && styles && worldTimeAPI) {
     return (
@@ -118,7 +122,7 @@ function App() {
   return (
     <div className="loading">
       <h3>AARON DUKE</h3>
-      <div class="spinner"></div>
+      <div className="spinner"></div>
     </div>
   )
 }
