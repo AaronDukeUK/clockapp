@@ -1,6 +1,7 @@
 import React from "react"
 
 const Extra = ({ worldTimeAPI, showmore }) => {
+  const dayOfWeekArray = ["", "Mon", "Tue", "Wed", "Thur", "Fri", "Sat", "Sun"]
   return (
     <div className={showmore ? "extra extra--showMore" : "extra"}>
       <div className="extra__container">
@@ -19,7 +20,7 @@ const Extra = ({ worldTimeAPI, showmore }) => {
         {/* Day of the Week */}
         <div className="extra__group dotw">
           <h6>Day of the Week</h6>
-          <h2>{worldTimeAPI.day_of_week}</h2>
+          <h2>{dayOfWeekArray[worldTimeAPI.day_of_week]}</h2>
         </div>
 
         {/* Week Number */}
