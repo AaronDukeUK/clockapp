@@ -118,7 +118,7 @@ function App() {
           />
         )}
       </div>
-      {showMore && <Extra worldTimeAPI={worldTimeAPI} />}
+      <Extra worldTimeAPI={worldTimeAPI} showmore={showMore} />
     </div>
   )
 }

@@ -1,7 +1,7 @@
 /* Main container */
 .App {
   width: 100%;
-  height: 100svh;
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
@@ -15,15 +15,10 @@
     width: 100%;
     height: 100%;
     transition: 0.3s ease-in-out;
-
-    /* Styles for when "Show More" button is clicked */
-    &--showMore {
-      height: 50svh;
-      justify-content: flex-end;
-    }
+    position: relative;
+    transition: all 0.3s ease-in-out;
 
     /* Media queries for larger screens */
-
     @media (min-width: 1024px) {
       padding: 65px 165px 100px 165px; /* New padding for desktops */
     }

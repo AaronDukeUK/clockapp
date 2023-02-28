@@ -32,7 +32,7 @@ const Clock = ({
   const isNightTime = hours < 4 || hours > 18
 
   return (
-    <main className="clock">
+    <main className={showMore ? "clock clock--showMore" : "clock"}>
       <div>
         {/* Clock header */}
         <div className="clock__lead">

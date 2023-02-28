@@ -29,9 +29,9 @@ const Quote = ({ showMore }) => {
   }
 
   // Render the quote if it exists
-  if (quote[quoteNumber] && !showMore) {
+  if (quote[quoteNumber]) {
     return (
-      <div className="quote">
+      <div className={showMore ? "quote quote--showMore" : "quote"}>
         <div className="quote__container">
           <p className="quote__body">"{quote[quoteNumber].text}"</p>
           <h5 className="quote__author">{quote[quoteNumber].author}</h5>

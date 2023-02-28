@@ -10,6 +10,12 @@
     justify-content: space-between;
   }
 
+  transition: all 0.6s ease-in-out;
+
+  &--showMore {
+    margin-bottom: 100%;
+  }
+
   /* Styles for the clock lead element */
   &__lead {
     display: flex;
@@ -72,26 +78,26 @@
 
     /* Styles for the button image */
     img {
+      width: 32px;
       transition: opacity 0.3s ease-in-out;
-
-      /* On screens with a minimum width of 768px, add right margin to the image */
-      @media (min-width: 768px) and (orientation: portrait) {
-        margin-right: 4px;
+      @media (width > 900px) {
+        width: 42px;
       }
     }
 
     /* On screens with a minimum width of 768px, adjust the button width, height and margin */
-    @media (min-width: 768px) {
+    @media (width > 900px) {
       width: 146px;
       height: 56px;
       margin-top: 80px;
     }
 
     /* On screens with a minimum width of 1124px, remove the top margin of the button */
-    @media (min-width: 1124px) {
+    @media (width > 1124px) {
       margin-top: 0;
     }
   }
+
   @media only screen and (orientation: landscape) {
     display: flex;
     flex-direction: row;

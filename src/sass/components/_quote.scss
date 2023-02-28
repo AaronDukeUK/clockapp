@@ -1,11 +1,17 @@
 .quote {
   /* Center the contents vertically and horizontally */
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: flex-start;
   position: relative;
   opacity: 1;
+  max-height: 100px;
   transition: 0.3s ease-in-out;
+
+  &--showMore {
+    opacity: 0;
+    max-height: 0;
+  }
 
   &__body {
     /* Set a maximum width to prevent text from overflowing */
@@ -22,12 +28,6 @@
     cursor: pointer;
   }
 
-  /* Media query for phones */
-  @media only screen and (max-width: 480px) and (orientation: landscape) {
-    /* Hide the quote when phone is in landscape mode */
-    display: none;
-  }
-
   /* Media query for tablets */
   @media only screen and (min-width: 481px) and (max-width: 1024px) {
     /* Center the contents vertically */
@@ -39,13 +39,9 @@
     }
   }
 
-  /* Media query for larger screens */
-  @media only screen and (min-width: 1025px) {
-    /* Align the quote to the left of the screen */
-    align-items: flex-start;
-
+  @media only screen and (width > 1025px) {
+    max-height: 300px;
     &__body {
-      /* Set a smaller maximum width to prevent text from overflowing */
       max-width: 40vw;
     }
   }
