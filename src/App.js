@@ -41,18 +41,23 @@ function App() {
 
   // Update background styles based on time of day and hours state variable
   const updateBackgroundStyles = useCallback(() => {
-    let backgroundImageUrl
-    if (hours >= 7 && hours < 17) {
-      backgroundImageUrl = day
-    } else if (hours >= 17 && hours < 20) {
-      backgroundImageUrl = afternoon
-    } else if (hours >= 0 && hours < 7) {
-      backgroundImageUrl = night
-    } else {
-      backgroundImageUrl = ""
+    const getBackgroundImageUrl = (hours) => {
+      if (hours >= 5 && hours < 16) {
+        return day
+      } else if (hours >= 16 && hours < 20) {
+        return afternoon
+      } else {
+        return night
+      }
     }
+
+    const backgroundImageUrl = getBackgroundImageUrl(hours)
+    const backgroundImageStyle = backgroundImageUrl
+      ? `url(${backgroundImageUrl})`
+      : ""
+
     setStyles({
-      backgroundImage: `${linearGrad}, url(${backgroundImageUrl})`,
+      backgroundImage: `${linearGrad}, ${backgroundImageStyle}`,
     })
   }, [hours])
 
@@ -86,6 +91,8 @@ function App() {
     !timeOfDay ||
     !styles ||
     !worldTimeAPI ||
+    !hours ||
+    !minutes ||
     document.readyState !== "complete"
   ) {
     return (
